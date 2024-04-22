@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metainformasjon -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Obligatorisk innlevering 3 i Webprogrammering - Data1700"> <!-- Beskrivelse av siden -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Visningsinnstilling for enheter -->
+    <title>Oblig 3: Bestilling av kinobilletter</title>
+
+    <!-- Eksterne skript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery-bibliotek -->
+    <script type="text/javascript" src="script.js"></script> <!-- Egendefinert JavaScript-fil -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> <!-- Bootstrap JavaScript -->
+
+    <!-- Eksterne stiler -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+</head>
+
+<body>
+<div class="container"> <!-- Container for innholdet -->
+
+    <form> <!-- Skjema for bestilling av kinobilletter -->
+        <div class="jumbotron">
+            <h1>Bestilling av kinobilletter</h1>
+        </div>
+
+        <!-- Velge film -->
+        <div class="form-group">
+            <label for="film">Velg film:</label>
+            <select id="film" name="film" class="form-control">
+                <option value="">Velg film her</option>
+                <option value="Anna">Anna</option>
+                <option value="Tarzan">Tarzan</option>
+                <option value="Fight Club">Fight Club</option>
+                <option value="The Big Short">The Big Short</option>
+                <option value="The lucky one">The lucky one</option>
+            </select>
+            <span id="wrongFilm" style="color:red;"></span> <!-- Feilmelding for valg av film -->
+        </div>
+
+        <!-- Antall kinobilletter -->
+        <div class="form-group">
+            <label for="antall">Antall:</label>
+            <input type="number" min="0" id="antall" class="form-control">
+            <span id="wrongAmount" style="color:red;"></span> <!-- Feilmelding for antall billetter -->
+        </div>
+
+        <!-- Personlig informasjon -->
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="fornavn">Fornavn:</label>
+                        <input type="text" class="form-control" id="fornavn">
+                    </div>
+                    <span id="wrongFirstName" style="color:red;"></span> <!-- Feilmelding for fornavn -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="etternavn">Etternavn:</label>
+                        <input type="text" class="form-control" id="etternavn">
+                    </div>
+                    <span id="wrongLastName" style="color:red;"></span> <!-- Feilmelding for etternavn -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="telefonnr">Telefonnr:</label>
+                        <input type="tel" class="form-control" id="telefonnr">
+                    </div>
+                    <span id="wrongNumber" style="color:red;"></span> <!-- Feilmelding for telefonnummer -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="epost">Email address:</label>
+                        <input type="email" class="form-control" id="epost">
+                    </div>
+                    <span id="wrongEmail" style="color:red;"></span> <!-- Feilmelding for e-postadresse -->
+                </td>
+            </tr>
+        </table>
+
+        <!-- Knapp for å kjøpe billetter -->
+        <button class="btn btn-success" onclick="buyTicket();return false" type="button">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Kjøp billett(er)
+        </button>
+
+        <!-- Overskrift for alle billetter -->
+        <h2>Alle billetter</h2>
+        <div id="/tickets/getAll" class="table table-striped table-bordered"></div> <!-- Tabell for visning av alle billetter -->
+
+        <!-- Knapp for å slette alle billetter -->
+        <button type="button" class="btn btn-danger" onclick="deleteAll()">
+            <span class="glyphicon glyphicon-trash"></span> Slett alle billettene
+        </button>
+
+    </form>
+</div>
+</body>
+</html>
