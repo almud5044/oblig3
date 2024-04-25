@@ -1,6 +1,6 @@
 # oblig3
 
-YOUTUBE:
+YOUTUBE: https://youtu.be/-jw9yUr0KY8 
 
 Åpne prosjektet i localhost8080.
 Velg film, fyll ut antall billetter og personlig informasjon.
